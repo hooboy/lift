@@ -13,7 +13,7 @@ module.exports = {
   },
   // https://github.com/standard/standard/blob/master/docs/RULES-en.md
   extends: [
-    'plugin:vue/essential'
+    // 'plugin:vue/essential'
   ],
   // required to lint *.vue files
   plugins: [
