@@ -1,29 +1,33 @@
-var gulp = require('gulp');
-var compass = require('gulp-compass');
-var csso = require('gulp-csso');
-var rename = require('gulp-rename');
-var size = require('gulp-size');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var changed = require('gulp-changed');
-var bs = require('browser-sync');
-var plumber = require('gulp-plumber');
-
+const gulp = require('gulp');
+const compass = require('gulp-compass');
+const csso = require('gulp-csso');
+const rename = require('gulp-rename');
+const size = require('gulp-size');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const changed = require('gulp-changed');
+// const bs = require('browser-sync');
+const plumber = require('gulp-plumber');
+const assets = require('./build/paths');
 
 gulp.task('sass', function() {
-    return gulp.src('./sass/*.scss')
+    return gulp.src('./assets/sass/**/*.scss')
     .pipe(plumber())
     .pipe(compass({
-      css: './css',
-      sass: './sass',
-      image: './images'
+      css: './assets/css',
+      sass: './assets/sass',
+      image: './assets/images'
     }))
     .pipe(csso())
     .pipe(rename({
         suffix: '.min'
     }))
     .pipe(size())
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./assets/css'));
+});
+
+gulp.task('sass:watch', ['sass'], function() {
+    gulp.watch('./assets/sass/**/*.scss', ['sass']);
 });
 
 gulp.task('js', function() {
@@ -47,10 +51,6 @@ gulp.task('js', function() {
     }))
     .pipe(size())
     .pipe(gulp.dest('./js'));
-});
-
-gulp.task('sass:watch', ['sass'], function() {
-    gulp.watch('./sass/**/*.scss', ['sass']);
 });
 
 gulp.task('js:watch',['js'], function() {

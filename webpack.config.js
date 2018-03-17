@@ -1,3 +1,5 @@
+// import * as paths from './build/paths';
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -11,6 +13,11 @@ const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
 const isDev = nodeEnv === 'development';
 
+const extractCssSass = new ExtractTextPlugin({
+    filename: 'css/[name].css',
+    disable: nodeEnv === 'development'
+});
+
 module.exports = (function makeWebpackConfig() {
     let config = {
         context: __dirname,
@@ -23,7 +30,7 @@ module.exports = (function makeWebpackConfig() {
 
     config.output = {
         path: path.resolve(__dirname, 'assets'),
-        publicPath: '/',
+        publicPath: '/assets/',
         filename: 'js/[name].bundle.js',
     };
 
@@ -42,16 +49,62 @@ module.exports = (function makeWebpackConfig() {
         disableHostCheck: true
     };
 
+    config.module = {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                'style-loader',
+                { loader: 'css-loader', options: { importLoaders: 1 } },
+                'postcss-loader'
+                ]
+            },
+            {
+                test: /\.(scss|sass)$/,
+                use: extractCssSass.extract({
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                // url: false
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                config: {
+                                    ctx: {
+                                        cssnext: {},
+                                        cssnano: {}
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            loader: 'sass-loader'
+                        }
+                    ],
+                    // use style-loader in development
+                    fallback: 'style-loader'
+                })
+            },
+
+
+        ]
+    };
+
     config.plugins = [
         // new CleanWebpackPlugin(['assets/js']),
 
-        new HtmlWebpackPlugin({
-            title: 'Hot Module Replacement'
-        }),
+        // new HtmlWebpackPlugin({
+        //     title: 'Hot Module Replacement'
+        // }),
 
         new webpack.NamedModulesPlugin(),
 
         new webpack.HotModuleReplacementPlugin(),
+
+        extractCssSass,
     ];
 
     return config;
