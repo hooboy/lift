@@ -1,3 +1,168 @@
 @import "foundation";
-
 @include foundation-global-styles();
+
+a, abbr, acronym, address, applet, b, big, blockquote, body, caption, center, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, i, iframe, ins, kbd, label, legend, li, object, ol, p, pre, q, s, samp, small, span, strike, strong, sub, sup, table, tbody, td, tfoot, th, thead, tr, tt, u, ul, var {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: 0 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    font-size: inherit;
+}
+
+object,
+embed {
+    max-width: 100%;
+    height: auto;
+}
+
+em,
+i {
+    // font-style: normal;
+}
+
+a,
+input,
+textarea {
+    text-decoration: none;
+    outline: 0;
+}
+
+sup {
+    vertical-align: text-top;
+}
+
+sub {
+    vertical-align: text-bottom;
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+button,
+input,
+select,
+textarea {
+    margin: 0;
+    vertical-align: baseline;
+}
+
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"]>input[type="button"]::-moz-focus-inner {
+    border: none;
+    padding: 0;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+    color: #999;
+}
+
+:-moz-placeholder {
+    color: #999;
+}
+
+::-moz-placeholder {
+    color: #999;
+}
+
+:-ms-input-placeholder {
+    color: #999;
+}
+
+input[type="text"]:focus,
+input[type="text"]:hover,
+input[type="password"]:focus,
+input[type="password"]:hover,
+textarea:focus,
+textarea:hover {
+    border: 1px solid #2aad6f!important;
+}
+
+[class^="icon-"],
+[class*=" icon-"],
+.icon {
+    line-height: 1;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+@import "core/layout";
+
+
+.mp-menu {
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #336ca6;
+
+    @include transform(translate3d(-100%, 0, 0));
+}
+
+.page-header,
+.header-wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 30;
+    background-position: 50% 0;
+    transition: background-color .3s, opacity .3s;
+    @include background-size(cover);
+}
+
+.header-top {
+    min-height: 60px;
+    border-bottom: 2px solid rgba(102,102,102,0.3);
+    position: relative;
+    z-index: 11;
+}
+
+.header-main {
+    height: 90px;
+    background-color: #fff;
+
+    .header-inner {
+        min-height: 88px;
+        padding: 0 20px;
+    }
+}
+
+.logo {
+    padding-top: 12px;
+}

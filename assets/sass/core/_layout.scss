@@ -1,0 +1,106 @@
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.fn {
+	float: none;
+}
+
+.al {
+	text-align: left;
+}
+
+.ar {
+	text-align: right;
+}
+
+.ac {
+	text-align: center;
+}
+
+.bg-fill {
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% 50%;
+}
+
+.full-width,
+.expand {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: block;
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+html, body, .sl-container, .sl-scroller {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    z-index: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1080px;
+}
+
+.sl-container,
+.sl-scroller {
+    position: relative;
+    overflow: hidden;
+}
+
+.sl-pusher {
+    position: relative;
+    left: 0;
+    height: 100%;
+    perspective: 1000px;
+
+    @include transition(all 0.5s);
+
+    &::after {
+        width: 0;
+        height: 0;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0;
+
+        background-color: rgba(0,0,0,0.3);
+        @include transition(opacity 0.3s, width 0.1s 0.3s, height 0.1s 0.3s);
+    }
+}
+
+.sl-pusher.sl-pushed {
+    &::after {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+
+        @include transition(opacity 0.3s);
+    }
+}
+
+.sl-scroller {
+    overflow-y: scroll;
+
+    // temp
+    background-color: #93b4c7;
+}
+
+.sl-scroller-inner {
+    position: relative;
+}
+

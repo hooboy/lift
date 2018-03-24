@@ -1,46 +1,11 @@
-@import 'util/util';
-
-@import "foundation";
 @import "compass";
 @import "compass/css3";
+@import "compass/css3/box";
 
+// @import "foundation";
 
-::-webkit-input-placeholder {
-   color: #999;
-}
-
-:-moz-placeholder {
-   color: #999;
-}
-
-::-moz-placeholder {
-   color: #999;
-}
-
-:-ms-input-placeholder {
-   color: #999;
-}
-
-input[type="text"]:focus,
-input[type="text"]:hover,
-input[type="password"]:focus,
-input[type="password"]:hover,
-textarea:focus, textarea:hover {
-	border: 1px solid #2aad6f!important;
-}
-
-
-[class^="icon-"], [class*=" icon-"], .icon {
-	line-height: 1;
-	font-weight: 400;
-	font-style: normal;
-	font-variant: normal;
-	text-transform: none;
-	speak: none;
-	-webkit-font-smoothing: antialiased;
-}
-
+// @import 'util/util';
 
 .col {
-    @include box;
+    @include display-box;
 }

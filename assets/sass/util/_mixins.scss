@@ -180,6 +180,8 @@
 
   &::after {
     clear: both;
+    height: 0;
+	visibility: hidden;
   }
 }
 
@@ -385,7 +387,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
+}
 
 // .box {
 //     width: 100%;
