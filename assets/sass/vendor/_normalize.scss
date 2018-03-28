@@ -52,6 +52,7 @@ header,
 hgroup,
 nav,
 section,
+main,
 summary {
     display: block;
 }
@@ -131,7 +132,7 @@ body {
 
 a {
     // 1
-    
+
     background: transparent;
 
     // 2
@@ -267,10 +268,10 @@ q {
 
 // 2
 q {
-    &:before, 
+    &:before,
     &:after {
         content: '';
-        content: none;	
+        content: none;
     }
 }
 
@@ -500,7 +501,7 @@ input {
         -moz-box-sizing: content-box;
         -webkit-box-sizing: content-box; // 2
         box-sizing: content-box;
-        
+
     	// Remove inner padding and search cancel button in Safari 5 and Chrome
         // on OS X.
         &::-webkit-search-cancel-button,
@@ -508,7 +509,7 @@ input {
             -webkit-appearance: none;
         }
     }
-    
+
     // 1. Address box sizing set to `content-box` in IE 8/9/10.
     // 2. Remove excess padding in IE 8/9/10.
     // 3. Removes excess padding in IE7
