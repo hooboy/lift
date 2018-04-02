@@ -691,6 +691,22 @@ textarea:hover {
   text-align: center;
 }
 
+.clearfix {
+  zoom: 1;
+  clear: both;
+}
+.clearfix::before, .clearfix::after {
+  display: table;
+  content: ' ';
+  flex-basis: 0;
+  order: 1;
+}
+.clearfix::after {
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
 .bg-fill {
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -722,7 +738,7 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 1080px;
+  max-width: 1280px;
 }
 
 .sl-container,
@@ -828,4 +844,32 @@ body {
   display: -moz-box;
   display: -ms-box;
   display: box;
+}
+
+#footer {
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  background-color: #335c81;
+}
+#footer .footer_inner {
+  padding-top: 8rem;
+}
+#footer .four_columns {
+  width: 100%;
+}
+#footer .four_columns .column {
+  width: 25%;
+  float: left;
+}
+#footer .four_columns h2 {
+  color: #fff;
+  text-transform: uppercase;
+}
+#footer .copyright h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+#footer .social h2 {
+  font-size: 1.25rem;
 }

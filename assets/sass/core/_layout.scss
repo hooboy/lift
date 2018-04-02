@@ -22,6 +22,14 @@
 	text-align: center;
 }
 
+.clearfix {
+    // min-height: 1%;
+    zoom: 1;
+    clear: both;
+
+    @include clearfix();
+}
+
 .bg-fill {
     background-size: cover !important;
     background-repeat: no-repeat !important;
@@ -53,7 +61,7 @@ body {
 
 .container {
     margin: 0 auto;
-    max-width: 1080px;
+    max-width: 1280px;
 }
 
 .sl-container,
@@ -104,4 +112,3 @@ body {
 .sl-scroller-inner {
     position: relative;
 }
-
