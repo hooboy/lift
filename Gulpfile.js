@@ -12,12 +12,19 @@ const assets = require('./build/paths');
 
 gulp.task('sass', function() {
     return gulp.src('./assets/sass/**/*.scss')
-    .pipe(plumber())
+    .pipe(plumber({
+        errorHandler: function (error) {
+            console.log(error.message);
+            this.emit('end');
+    }}))
     .pipe(compass({
       css: './assets/css',
       sass: './assets/sass',
       image: './assets/images'
     }))
+    .on('error', function(err) {
+        // Would like to catch the error here
+    })
     .pipe(csso())
     .pipe(rename({
         suffix: '.min'

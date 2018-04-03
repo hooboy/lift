@@ -1,0 +1,102 @@
+.header-nav {
+    position: relative;
+    z-index: 200;
+}
+
+.menu {
+    li {
+        float: left;
+        position: relative;
+        cursor: pointer;
+        z-index: 200;
+
+        &:hover {
+            > .sub-menu {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    .sub-menu {
+        // display: none;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        left: 0;
+        z-index: 200;
+        background-color: rgba(55,100,150,0.8);
+        @include border-radius(5px);
+        @include transform(translateY(10px));
+        @include box-shadow(1px 1px 30px rgba(0, 0, 0, 0.06));
+        @include transition(opacity .2s ease-in);
+
+        &::before {
+            content: '\0020';
+            border-left: 10px dotted transparent;
+            border-right: 10px dotted transparent;
+            border-bottom: 10px dotted rgba(55,100,150,0.8);
+            position: absolute;
+            @include transform(translate(30px,-10px));
+        }
+
+        li {
+            float: none;
+            line-height: 52px;
+
+            a, span {
+                color: #fff;
+                font-size: 16px;
+            }
+
+            a {
+                min-width: 220px;
+                display: block;
+                padding: 0 20px;
+                line-height: 52px;
+                @include box-sizing(border-box);
+                white-space: nowrap;
+
+                &:hover {
+                    background-color: rgba(23,41,61,0.6);
+                }
+            }
+
+            &:first-child {
+                a {
+                    &:hover {
+                        @include border-top-radius(5px);
+                    }
+                }
+            }
+
+            &:last-child {
+                a {
+                    &:hover {
+                        @include border-bottom-radius(5px);
+                    }
+                }
+            }
+        }
+    }
+
+    > li {
+        padding-right: 40px;
+        line-height: 88px;
+
+        &.last {
+            padding-right: 0;
+        }
+
+        a {
+
+            span {
+                font-size: 22px;
+
+                & {
+                    color: #000;
+                }
+            }
+        }
+    }
+}

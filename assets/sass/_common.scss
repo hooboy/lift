@@ -132,15 +132,14 @@ textarea:hover {
     left: 0;
     z-index: 1;
     background-color: #336ca6;
-
-    @include transform(translate3d(-100%, 0, 0));
+    @include transform(translate(-100%, 0));
 }
 
 .page-header,
 .header-wrapper {
     width: 100%;
     position: relative;
-    z-index: 30;
+    z-index: 101;
     background-position: 50% 0;
     transition: background-color .3s, opacity .3s;
     @include background-size(cover);

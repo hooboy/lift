@@ -11,4 +11,18 @@
 }
 
 
+@import "ui/header";
+
 @import "ui/footer";
+
+
+.content {
+    // @include grid-column(25%);
+    .gallery {
+        @include grid-layout(3, '.gallery-item', $grid-column-gutter);
+
+        @include breakpoint(medium) {
+            width: 100%;
+        }
+    }
+}
